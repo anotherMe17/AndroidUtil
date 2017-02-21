@@ -1,13 +1,39 @@
 package io.github.anotherme17.androidutil;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Arrays;
+
+import butterknife.Bind;
+import io.github.anotherme17.androidutil.adapter.MainActAdapter;
+
+public class MainActivity extends BaseActivity {
+
+    @Bind(R.id.act_main_listview)
+    ListView mListview;
+
+    private MainActAdapter mAdapter;
+
+    private String[] mActName = new String[]{"SPUtils"};
+    private Class[] mAct = new Class[]{SPUtilsActivity.class};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void init() {
+        mAdapter = new MainActAdapter(this, Arrays.asList(mActName));
+        mListview.setAdapter(mAdapter);
+
+        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(mAct[position]);
+            }
+        });
     }
 }
