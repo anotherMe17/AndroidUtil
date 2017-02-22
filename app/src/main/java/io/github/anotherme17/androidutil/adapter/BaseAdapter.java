@@ -25,6 +25,11 @@ public abstract class BaseAdapter<R> extends android.widget.BaseAdapter {
         mInflater = LayoutInflater.from(mContext);
     }
 
+    public void setData(List<R> data) {
+        this.mData = data;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return mData.size();
