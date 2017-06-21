@@ -16,8 +16,8 @@ public class MainActivity extends BaseActivity {
 
     private MainActAdapter mAdapter;
 
-    private String[] mActName = new String[]{"SPUtils"};
-    private Class[] mAct = new Class[]{SPUtilsActivity.class};
+    private String[] mActName = new String[]{"SPUtils", "AppUtils"};
+    private Class[] mAct = new Class[]{SPUtilsActivity.class, AppActivity.class};
 
     @Override
     public int getLayoutId() {

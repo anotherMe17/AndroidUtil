@@ -18,8 +18,7 @@ import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import io.github.anotherme17.android_util.Utils;
-import io.github.anotherme17.android_util.sp.SPUtils;
+import io.github.anotherme17.android_util.SPUtils;
 import io.github.anotherme17.androidutil.adapter.SPAdapter;
 
 /**
@@ -62,7 +61,7 @@ public class SPUtilsActivity extends BaseActivity {
 
     @Override
     public void init() {
-        mSPUtils = Utils.getSpUtils();
+        mSPUtils = SPUtils.getInstance("SPTest");
         mData = getAllSP();
         mAdapter = new SPAdapter(this, mData);
         mSpShow.setAdapter(mAdapter);
@@ -162,7 +161,7 @@ public class SPUtilsActivity extends BaseActivity {
     }
 
     private void updateSP() {
-        mData=getAllSP();
+        mData = getAllSP();
         mAdapter.setData(mData);
 
         setListViewHeightBasedOnChildren(mSpShow);

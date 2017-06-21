@@ -12,6 +12,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Utils.init(this, "AndroidUtil");
+        Utils.init(this);
     }
 }
